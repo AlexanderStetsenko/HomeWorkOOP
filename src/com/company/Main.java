@@ -9,28 +9,27 @@ public class Main {
 //2. Customer: id, Фамилия, Имя, Отчество, Адрес, Номер кредитной карточки, номер банковского счета.
     public static void main(String[] args)
     {
-        ServiceClass serviceClass = new ServiceClass();
+       ServiceClass serviceClass = new ServiceClass();
+        Books sortBook = new Books();
+
+       Books book1 = new Books(1, "Его пленница", "Бейтс Ноэль", "Fabric", 1999, 567, 55.66, "type");
+       Books book3 = new Books(1, "Вынужденный брак", "Мори Триш", "Fabric1", 2005, 567, 55.66, "type");
+       Books book4 = new Books(1, "Отважная провинциалка", "Филдинг Лиз", "Fabric0", 1999, 567, 55.66, "type");
+       Books book5 = new Books(1, "Милая лгунья", "Кэрри Томас", "Fabric", 1999, 567, 55.66, "type");
+       Books book6 = new Books(1, "Надо верить", "Кэрри Томас", "Fabric1", 1999, 567, 55.66, "type");
+
+        Books[] booksList = new Books[Books.count];
+
+        book1.addToArray(booksList);
+        book3.addToArray(booksList);
+        book4.addToArray(booksList);
+        book5.addToArray(booksList);
+        book6.addToArray(booksList);
 
 
-        Customer customer = new Customer(1, "bvanov", "Ivan", "avanovich", "4000300020001000", "4000300020001000");
-        Customer customer1 = new Customer(1, "avanov", "Ivan", "4vanovich", "4000300020001000", "4000300020001000");
-        Customer customer2 = new Customer(1, "cvanov", "Ivan", "4vanovich", "4000300020001000", "4000300020001000");
-
-        Customer customerList[] = new Customer[Customer.count];
-
-        customer.addToArray(customerList);
-        customer1.addToArray(customerList);
-        customer2.addToArray(customerList);
-               
-
-        Arrays.sort(customerList, Customer.snorderer);
-
-        for (Customer customer123 : customerList)
-        {
-            System.out.println(customer123);
-        }
-
-
+        sortBook.sortByAutor("Бейтс Ноэль", booksList);
+        sortBook.sortByFabric("Fabric", booksList);
+        sortBook.sortByReleaseYear(200, booksList);
 
 
 
